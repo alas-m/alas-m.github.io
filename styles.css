@@ -7,7 +7,7 @@
     --color-pastel-visited: #D3B6FF;
     --color-status-green: #86FFB8;
     --font-primary: 'Montserrat', sans-serif;
-    --header-height: 60px;
+    --header-height: 70px;
     --border-radius-soft: 12px;
 }
 
@@ -23,7 +23,6 @@ body {
     font-family: var(--font-primary);
     min-height: 100vh;
 }
-
 
 #main-header {
     width: 100%;
@@ -46,7 +45,6 @@ body {
     padding: 0 1rem;
     position: relative;
 }
-
 
 .identity-status {
     display: flex;
@@ -281,7 +279,6 @@ body {
     opacity: 1;
     transform: translate(-50%, -50%);
 }
-
 
 .cta-button {
     display: inline-flex;
@@ -631,5 +628,96 @@ body.light-theme .contact-card {
 
 body.light-theme .contact-card .card-title {
     border-bottom-color: rgba(90, 71, 192, 0.5);
+}
 
+@media (max-width: 900px) {
+    .header-container {
+        padding: 0 1.5rem;
+    }
+    
+    .hero-content {
+        max-width: 95%;
+        padding: 2rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .info-tab {
+        width: 250px;
+        right: 1.5rem;
+    }
+
+    .data-logs-section {
+        padding: 4rem 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    #main-header {
+        height: 60px;
+    }
+    .header-container {
+        padding: 0 1rem;
+    }
+    .name-display {
+        font-size: 1.3rem;
+    }
+    .status-indicator {
+        display: none;
+    }
+    
+    .hero-content {
+        width: 100%;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .skills-list {
+        justify-content: center;
+    }
+
+    .info-tab {
+        width: calc(100% - 2rem);
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        top: calc(60px + 10px);
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .log-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .log-status {
+        margin-top: 0.5rem;
+    }
+
+    .contact-card {
+        padding: 1rem;
+    }
+    .contact-card .card-title {
+        text-align: left;
+    }
+    .contact-links {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
