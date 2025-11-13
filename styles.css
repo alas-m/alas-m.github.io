@@ -1,25 +1,16 @@
-/* ------------------------------------------------------------------- */
-/* --- GLOBAL STYLES & VARIABLES (REVISED) --- */
-/* ------------------------------------------------------------------- */
 :root {
-    /* Base Colors */
-    --color-dark-bg: #121212; 
+    --color-dark-bg: #121212;
     --color-header-bg: rgba(18, 18, 18, 0.9);
-    --color-text-main: #F0F0FF; 
-
-    /* Pastel Purple/Blue Scheme */
-    --color-pastel-primary: #BBAEFF; 
-    --color-pastel-hover: #8C9CFF; 
-    --color-pastel-visited: #D3B6FF; 
-    --color-status-green: #86FFB8; 
-
-    /* Layout & Typography */
-    --font-primary: 'Montserrat', sans-serif; 
+    --color-text-main: #F0F0FF;
+    --color-pastel-primary: #BBAEFF;
+    --color-pastel-hover: #8C9CFF;
+    --color-pastel-visited: #D3B6FF;
+    --color-status-green: #86FFB8;
+    --font-primary: 'Montserrat', sans-serif;
     --header-height: 60px;
-    --border-radius-soft: 12px; 
+    --border-radius-soft: 12px;
 }
 
-/* Base Reset */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -29,62 +20,58 @@
 body {
     background-color: var(--color-dark-bg);
     color: var(--color-text-main);
-    font-family: var(--font-primary); 
+    font-family: var(--font-primary);
     min-height: 100vh;
 }
 
-/* ------------------------------------------------------------------- */
-/* --- 1. HEADER (TOP BAR) STYLING --- */
-/* ------------------------------------------------------------------- */
+
 #main-header {
     width: 100%;
     height: var(--header-height);
-    background: var(--color-header-bg); 
+    background: var(--color-header-bg);
     backdrop-filter: blur(8px);
     position: fixed;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(187, 174, 255, 0.2); 
+    border-bottom: 1px solid rgba(187, 174, 255, 0.2);
 }
 
 .header-container {
-    width: 100%; 
-    margin: 0; 
+    width: 100%;
+    margin: 0;
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem; /* Minimal padding for edge alignment */
-    position: relative; 
+    padding: 0 1rem;
+    position: relative;
 }
 
-/* ------------------------------------------------------------------- */
-/* --- 2. IDENTITY & STATUS --- */
-/* ------------------------------------------------------------------- */
+
 .identity-status {
     display: flex;
     align-items: center;
 }
 
 .name-display {
-    font-size: 1.6rem; 
+    font-size: 1.6rem;
     font-weight: bold;
     letter-spacing: 0.1em;
-    color: var(--color-pastel-primary); 
-    text-shadow: 0 0 8px rgba(187, 174, 255, 0.5); 
+    color: var(--color-pastel-primary);
+    text-shadow: 0 0 8px rgba(187, 174, 255, 0.5);
 }
 
 .right-controls {
     display: flex;
     align-items: center;
-    gap: 20px; 
+    gap: 20px;
 }
 
 .status-indicator {
     display: flex;
     align-items: center;
     font-size: 0.85rem;
-    color: var(--color-status-green); 
+    color: var(--color-status-green);
     opacity: 0.8;
 }
 .status-light {
@@ -92,9 +79,9 @@ body {
     height: 8px;
     border-radius: 50%;
     background-color: var(--color-status-green);
-    box-shadow: 0 0 8px var(--color-status-green), 0 0 12px rgba(134, 255, 184, 0.5); 
+    box-shadow: 0 0 8px var(--color-status-green), 0 0 12px rgba(134, 255, 184, 0.5);
     margin-right: 0.5rem;
-    animation: pulse 1.5s infinite alternate ease-in-out; 
+    animation: pulse 1.5s infinite alternate ease-in-out;
 }
 
 @keyframes pulse {
@@ -102,9 +89,6 @@ body {
     to { opacity: 1; transform: scale(1); }
 }
 
-/* ------------------------------------------------------------------- */
-/* --- 3. INFO BUTTON (ROUNDED & GLITCH) --- */
-/* ------------------------------------------------------------------- */
 .info-button {
     background: none;
     border: 1px solid var(--color-pastel-primary);
@@ -113,42 +97,35 @@ body {
     cursor: pointer;
     font-size: 0.9rem;
     position: relative;
-    /* overflow: hidden;  <-- REMOVE or comment out this line */
-    transition: color 0.3s ease, background-color 0.3s ease; /* Added background-color transition */
-    border-radius: var(--border-radius-soft); 
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: var(--border-radius-soft);
 }
 
-/* Hover State */
 .info-button:hover {
-    /* Kept the hover color and shadow for a cleaner, modern effect */
-    color: var(--color-text-main); 
-    background-color: var(--color-pastel-hover); /* NEW: Add a background color on hover */
+    color: var(--color-text-main);
+    background-color: var(--color-pastel-hover);
     border-color: var(--color-pastel-hover);
-    box-shadow: 0 0 15px rgba(140, 156, 255, 0.6); 
+    box-shadow: 0 0 15px rgba(140, 156, 255, 0.6);
 }
 
-/* ------------------------------------------------------------------- */
-/* --- 4. INFO TAB (ROUNDED & PASTEL DETAILS) --- */
-/* ------------------------------------------------------------------- */
 .info-tab {
     position: absolute;
-    top: calc(var(--header-height) + 15px); 
-    right: 1rem; 
+    top: calc(var(--header-height) + 15px);
+    right: 1rem;
     width: 300px;
-    /* REPLACE solid color with a new variable for theme control */
-    background-color: var(--color-info-tab-bg, #212121); 
+    background-color: var(--color-info-tab-bg, #212121);
     border: 1px solid var(--color-pastel-primary);
     padding: 1.5rem;
-    visibility: hidden; 
+    visibility: hidden;
     opacity: 0;
-    transform: translateY(-10px); 
+    transform: translateY(-10px);
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
-    border-radius: var(--border-radius-soft); 
+    border-radius: var(--border-radius-soft);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(187, 174, 255, 0.3);
     z-index: 999;
 }
 
-.info-button:hover + .info-tab, 
+.info-button:hover + .info-tab,
 .info-button:focus + .info-tab,
 .info-tab:hover {
     visibility: visible;
@@ -160,7 +137,6 @@ body {
     font-family: var(--font-primary);
     color: var(--color-pastel-hover);
     margin-bottom: 1rem;
-    /* Use a new variable for the dashed line */
     border-bottom: 1px dashed var(--color-info-tab-line, rgba(187, 174, 255, 0.5));
     padding-bottom: 0.5rem;
 }
@@ -170,60 +146,47 @@ body {
     font-size: 0.9rem;
 }
 
-/* --- 5. INFO TAB LINK STYLING (PASTEL COLORS) --- */
 .info-tab a {
-    color: var(--color-pastel-primary); 
-    text-decoration: none; 
-    border-bottom: 1px dashed rgba(187, 173, 255, 0.5); 
+    color: var(--color-pastel-primary);
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(187, 173, 255, 0.5);
     transition: all 0.2s ease-in-out;
 }
 
 .info-tab a:hover {
-    color: var(--color-pastel-hover); 
-    border-bottom: 1px solid var(--color-pastel-hover); 
-    text-shadow: 0 0 5px rgba(140, 156, 255, 0.7); 
+    color: var(--color-pastel-hover);
+    border-bottom: 1px solid var(--color-pastel-hover);
+    text-shadow: 0 0 5px rgba(140, 156, 255, 0.7);
 }
 
 .info-tab a:visited {
-    color: var(--color-pastel-visited); 
+    color: var(--color-pastel-visited);
     border-bottom: 1px dashed rgba(211, 182, 255, 0.3);
 }
-
-/* ------------------------------------------------------------------- */
-/* --- 6. HERO SECTION STYLING --- */
-/* ------------------------------------------------------------------- */
 
 .hero-section {
     min-height: calc(100vh - var(--header-height));
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: left; 
+    text-align: left;
     padding-top: var(--header-height);
 }
 
 .hero-content {
-    max-width: 900px; 
+    max-width: 900px;
     padding: 2rem;
     margin: 0 auto;
-    
-    /* Subtle rounded container for the main content area */
-    border: 1px solid rgba(187, 174, 255, 0.1); 
-    border-radius: var(--border-radius-soft); 
+    border: 1px solid rgba(187, 174, 255, 0.1);
+    border-radius: var(--border-radius-soft);
     padding: 3rem;
-
-    /* *** NEW: IOS GLASS EFFECT ON THE CARD ITSELF *** */
-    /* Add a subtle background color for the blur to work against */
-    background-color: rgba(18, 18, 18, 0.7); 
-    
-    /* Apply the blur filter */
-    backdrop-filter: blur(10px); 
+    background-color: rgba(18, 18, 18, 0.7);
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 
-/* --- Hero Title --- */
 .hero-title {
-    font-size: 3rem; 
+    font-size: 3rem;
     font-weight: 700;
     margin-bottom: 2rem;
     line-height: 1.2;
@@ -231,11 +194,10 @@ body {
 }
 
 #role-decoder {
-    color: var(--color-pastel-hover); 
+    color: var(--color-pastel-hover);
     text-shadow: 0 0 10px rgba(140, 156, 255, 0.6);
 }
 
-/* --- Skills Block --- */
 .skills-intro {
     font-size: 1rem;
     color: var(--color-pastel-primary);
@@ -246,29 +208,27 @@ body {
 .skills-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; 
+    gap: 10px;
     margin-bottom: 3rem;
 }
 
-/* --- SKILL TAGS (Complex Hover Effect) --- */
 .skill-tag {
     font-size: 0.9rem;
     padding: 0.5rem 1rem;
-    background-color: rgba(187, 174, 255, 0.1); 
+    background-color: rgba(187, 174, 255, 0.1);
     border: 1px solid var(--color-pastel-primary);
-    border-radius: 20px; 
-    display: inline-block; 
-    cursor: pointer; 
-    transition: all 0.3s ease-in-out; 
+    border-radius: 20px;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
     position: relative;
-    overflow: hidden; 
-    z-index: 1; 
-    color: var(--color-text-main); /* Default text color (Skill Name) */
+    overflow: hidden;
+    z-index: 1;
+    color: var(--color-text-main);
     white-space: nowrap;
-    text-align: center; 
+    text-align: center;
 }
 
-/* Water Drop (::before) - Blue expansion */
 .skill-tag::before {
     content: '';
     position: absolute;
@@ -280,38 +240,33 @@ body {
     border-radius: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
-    z-index: 2; 
+    z-index: 2;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Experience Years Overlay (::after) - White text, years only */
 .skill-tag::after {
-    /* Content only pulls the experience data */
-    content: attr(data-experience); 
+    content: attr(data-experience);
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centered */
+    transform: translate(-50%, -50%);
     white-space: nowrap;
-    color: var(--color-text-main); /* **WHITE TEXT** */
+    color: var(--color-text-main);
     font-weight: 700;
-    font-size: 1.1em; 
-    opacity: 0; 
-    z-index: 4; /* Above the water drop (z-index 2) */
+    font-size: 1.1em;
+    opacity: 0;
+    z-index: 4;
     transition: opacity 0.3s ease, transform 0.3s ease;
     pointer-events: none;
 }
 
-/* --- Hover State --- */
 .skill-tag:hover {
-    color: transparent; /* HIDES the original skill name text */
-    /* Add a subtle background color on hover to help hide the text */
-    background-color: rgba(187, 174, 255, 0.3); /* Slightly more opaque background on hover */
+    color: transparent;
+    background-color: rgba(187, 174, 255, 0.3);
     border-color: var(--color-pastel-hover);
-    transform: scale(1.05); /* Zoom in */
-    box-shadow: 0 8px 20px rgba(140, 156, 255, 0.4); 
-    z-index: 5; 
-    /* The glass effect: Keep it, but be aware it can sometimes be the source of issues */
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(140, 156, 255, 0.4);
+    z-index: 5;
     backdrop-filter: blur(10px) saturate(180%);
     -webkit-backdrop-filter: blur(10px) saturate(180%);
 }
@@ -319,16 +274,15 @@ body {
 .skill-tag:hover::before {
     width: 200%;
     height: 200%;
-    opacity: 1; /* Make water drop visible and expand */
+    opacity: 1;
 }
 
 .skill-tag:hover::after {
-    opacity: 1; /* Show ONLY the white years text, centered */
+    opacity: 1;
     transform: translate(-50%, -50%);
 }
 
 
-/* --- CTA Button (Rounded and Pastel) --- */
 .cta-button {
     display: inline-flex;
     align-items: center;
@@ -336,12 +290,10 @@ body {
     font-size: 1rem;
     text-decoration: none;
     font-weight: 700;
-    
-    color: var(--color-dark-bg); 
+    color: var(--color-dark-bg);
     background-color: var(--color-pastel-primary);
     border: 2px solid var(--color-pastel-primary);
-    
-    border-radius: var(--border-radius-soft); 
+    border-radius: var(--border-radius-soft);
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(187, 174, 255, 0.4);
 }
@@ -357,9 +309,6 @@ body {
     margin-left: 10px;
 }
 
-/* ------------------------------------------------------------------- */
-/* --- 7. PROJECT SHOWCASE (DATA LOGS) STYLING --- */
-/* ------------------------------------------------------------------- */
 .data-logs-section {
     padding: 6rem 2rem;
     max-width: 1200px;
@@ -382,17 +331,12 @@ body {
     padding-bottom: 1rem;
 }
 
-/* --- Log Entry Card Styling --- */
 .log-entry-card {
-    background-color: #1A1A1A; /* Dark gray, slightly lighter than body */
+    background-color: #1A1A1A;
     border: 1px solid rgba(187, 174, 255, 0.2);
     padding: 2rem;
     margin-bottom: 2rem;
-    
-    /* Rounded corners */
     border-radius: var(--border-radius-soft);
-    
-    /* Soft hover effect */
     transition: all 0.3s ease;
 }
 
@@ -417,7 +361,7 @@ body {
 
 .log-status {
     font-size: 0.9rem;
-    color: var(--color-status-green); /* Use the bright status green */
+    color: var(--color-status-green);
     border: 1px solid var(--color-status-green);
     padding: 3px 8px;
     border-radius: 5px;
@@ -435,7 +379,6 @@ body {
     line-height: 1.6;
 }
 
-/* --- Dependency Tags (Skills) --- */
 .log-tags {
     display: flex;
     flex-wrap: wrap;
@@ -446,12 +389,11 @@ body {
 .dependency-tag {
     font-size: 0.8rem;
     padding: 4px 10px;
-    background-color: rgba(140, 156, 255, 0.1); /* Subtle blue background */
+    background-color: rgba(140, 156, 255, 0.1);
     color: var(--color-pastel-hover);
-    border-radius: 4px; /* Slightly less rounded than the main elements */
+    border-radius: 4px;
 }
 
-/* --- Access Link (Log Link) --- */
 .log-link {
     display: inline-block;
     color: var(--color-pastel-hover);
@@ -465,34 +407,23 @@ body {
     text-decoration: underline;
 }
 
-/* ------------------------------------------------------------------- */
-/* --- 8. SMOOTH SCROLLING ENABLER --- */
-/* ------------------------------------------------------------------- */
-
 html {
-    /* Enables smooth, animated scrolling when clicking anchor links (like #data-logs) */
     scroll-behavior: smooth;
 }
 
-/* ------------------------------------------------------------------- */
-/* --- 9. DYNAMIC BACKGROUND CANVAS STYLING --- */
-/* ------------------------------------------------------------------- */
 #particle-canvas {
-    position: fixed; /* 1. Must be fixed to stay in place */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* 2. Must fill the screen */
-    height: 100%; /* 2. Must fill the screen */
-    z-index: -1; /* 3. CRITICAL: Must be behind all other elements (which have default z-index of 0) */
+    width: 100%;
+    height: 100%;
+    z-index: -1;
     display: block;
 }
 
-/* ------------------------------------------------------------------- */
-/* --- 10. FOOTER (SYSTEM FOOTER) STYLING --- */
-/* ------------------------------------------------------------------- */
 .system-footer {
     width: 100%;
-    background-color: #0A0A0A; /* Very dark background */
+    background-color: #0A0A0A;
     border-top: 1px solid rgba(187, 174, 255, 0.1);
     padding: 2rem 0;
     font-family: var(--font-primary);
@@ -528,7 +459,6 @@ html {
     text-shadow: 0 0 5px rgba(140, 156, 255, 0.5);
 }
 
-/* --- Social Icons --- */
 .social-links {
     margin-bottom: 1.5rem;
     display: flex;
@@ -537,16 +467,15 @@ html {
 
 .social-icon {
     font-size: 1.5rem;
-    color: var(--color-text-main); /* White/light gray base */
+    color: var(--color-text-main);
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-icon:hover {
-    color: var(--color-pastel-hover); /* Pastel accent on hover */
+    color: var(--color-pastel-hover);
     transform: scale(1.2);
 }
 
-/* --- Copyright Text --- */
 .copyright {
     font-size: 0.75rem;
     color: var(--color-text-main);
@@ -556,10 +485,6 @@ html {
 }
 
 
-/* ------------------------------------------------------------------- */
-/* --- 11. THEME TOGGLE & LIGHT MODE OVERRIDES (NEW SECTION) --- */
-/* ------------------------------------------------------------------- */
-
 .theme-toggle {
     background: none;
     border: none;
@@ -567,62 +492,53 @@ html {
     font-size: 1.2rem;
     color: var(--color-pastel-primary);
     transition: color 0.3s ease;
-    padding: 0.5rem; /* Make the click area easier */
+    padding: 0.5rem;
 }
 
 .theme-toggle:hover {
     color: var(--color-pastel-hover);
 }
 
-/* --- LIGHT MODE VARIABLES OVERRIDES --- */
 body.light-theme {
-    /* Primary Colors */
-    --color-dark-bg: #F8F8F8; /* Light background */
-    --color-header-bg: rgba(248, 248, 248, 0.9); /* Semi-transparent light header */
-    --color-text-main: #121212; /* Dark text */
-
-    /* Pastel Scheme Inverted (Darker colors for contrast on light background) */
-    --color-pastel-primary: #5A47C0; 
-    --color-pastel-hover: #3C50C0; 
+    --color-dark-bg: #F8F8F8;
+    --color-header-bg: rgba(248, 248, 248, 0.9);
+    --color-text-main: #121212;
+    --color-pastel-primary: #5A47C0;
+    --color-pastel-hover: #3C50C0;
     --color-pastel-visited: #7E65C0;
-    --color-status-green: #008000; 
-    --color-info-tab-bg: #FFFFFF; /* White background for light theme */
+    --color-status-green: #008000;
+    --color-info-tab-bg: #FFFFFF;
     --color-info-tab-line: rgba(90, 71, 192, 0.5);
 }
 
-/* Applying Light Mode Overrides for Specific Elements */
 body.light-theme #main-header {
     border-bottom-color: rgba(90, 71, 192, 0.2);
 }
 
 body.light-theme .name-display {
-    color: var(--color-pastel-primary); 
-    text-shadow: 0 0 8px rgba(90, 71, 192, 0.5); 
+    color: var(--color-pastel-primary);
+    text-shadow: 0 0 8px rgba(90, 71, 192, 0.5);
 }
 
 body.light-theme .hero-content {
-    /* Adjust blur background for light theme */
-    background-color: rgba(255, 255, 255, 0.7); 
+    background-color: rgba(255, 255, 255, 0.7);
     border-color: rgba(90, 71, 192, 0.1);
 }
 
 body.light-theme .skill-tag {
-    /* Light theme skill tag base */
-    background-color: rgba(90, 71, 192, 0.1); 
+    background-color: rgba(90, 71, 192, 0.1);
     border-color: var(--color-pastel-primary);
     color: var(--color-text-main);
 }
 
 body.light-theme .skill-tag:hover {
-    /* Keep color transparent to hide original text */
-    color: transparent; 
+    color: transparent;
     border-color: var(--color-pastel-hover);
-    box-shadow: 0 8px 20px rgba(90, 71, 192, 0.4); 
-    /* Remove backdrop-filter here if it causes issues, but keep the rest */
+    box-shadow: 0 8px 20px rgba(90, 71, 192, 0.4);
 }
 
 body.light-theme .skill-tag:hover::after {
-    color: #FFFFFF; /* Force the experience text to be white */
+    color: #FFFFFF;
 }
 
 body.light-theme .info-button {
@@ -631,30 +547,26 @@ body.light-theme .info-button {
 }
 
 body.light-theme .info-tab {
-    /* Light theme shadow adjustment */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 0 0 20px rgba(90, 71, 192, 0.3);
 }
 
 body.light-theme .info-button {
-    /* Ensure the new hover background works in light theme */
-    background-color: none; /* Base is none */
+    background-color: none;
 }
 
 body.light-theme .info-button:hover {
-    /* Light theme hover state */
     background-color: var(--color-pastel-hover);
-    color: var(--color-dark-bg); /* Dark text on hover */
-    box-shadow: 0 0 15px rgba(60, 80, 192, 0.6); 
+    color: var(--color-dark-bg);
+    box-shadow: 0 0 15px rgba(60, 80, 192, 0.6);
 }
 
-/* Log card adjustments */
 body.light-theme .log-entry-card {
-    background-color: #EEEEEE; 
+    background-color: #EEEEEE;
     border-color: rgba(90, 71, 192, 0.2);
 }
 
 body.light-theme .system-footer {
-    background-color: #E0E0E0; 
+    background-color: #E0E0E0;
     border-top-color: rgba(90, 71, 192, 0.1);
 }
 
@@ -662,9 +574,8 @@ body.light-theme .system-footer {
     border: 1px solid var(--color-pastel-primary);
     border-radius: var(--border-radius-soft);
     padding: 1.5rem;
-    margin-bottom: 3rem; /* Space before the CTA button */
-    /* Use a slightly darker background than hero-content for depth */
-    background-color: var(--color-dark-bg); 
+    margin-bottom: 3rem;
+    background-color: var(--color-dark-bg);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(187, 174, 255, 0.2);
     transition: all 0.3s ease;
 }
@@ -685,7 +596,7 @@ body.light-theme .system-footer {
 .contact-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px 30px; /* Vertical and horizontal gap */
+    gap: 15px 30px;
 }
 
 .contact-item {
@@ -714,10 +625,11 @@ body.light-theme .system-footer {
 }
 
 body.light-theme .contact-card {
-    background-color: #FFFFFF; /* White background for light theme */
+    background-color: #FFFFFF;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 10px rgba(90, 71, 192, 0.2);
 }
 
 body.light-theme .contact-card .card-title {
     border-bottom-color: rgba(90, 71, 192, 0.5);
+
 }
