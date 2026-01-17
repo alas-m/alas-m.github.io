@@ -807,3 +807,23 @@ body.light-theme .contact-card .card-title {
         font-size: 0.7rem;
     }
 }
+
+.contact-item i, 
+.contact-item svg {
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.info-button i {
+    margin-right: 10px;
+}
+
+.cta-button i {
+    margin-left: 12px;
+}
+
+.contact-item svg {
+    width: 1.2em;
+    height: 1.2em;
+}
